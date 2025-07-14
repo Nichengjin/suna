@@ -8,13 +8,13 @@ export const createClient = async () => {
   const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVvcHRxc3ViZXBreWVlcHlkanZjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA5Mzc0NjcsImV4cCI6MjA2NjUxMzQ2N30.BghfP2XYoTmD34mMrOprbUwfRARihZs_MHXuDRrdhvk';
 
   // Ensure the URL is in the proper format with http/https protocol
-  if (supabaseUrl && !supabaseUrl.startsWith('http')) {
-    // If it's just a hostname without protocol, add http://
-    supabaseUrl = `http://${supabaseUrl}`;
-  }
+  // if (supabaseUrl && !supabaseUrl.startsWith('http')) {
+  //   // If it's just a hostname without protocol, add http://
+  //   supabaseUrl = `http://${supabaseUrl}`;
+  // }
 
-  // console.log('[SERVER] Supabase URL:', supabaseUrl);
-  // console.log('[SERVER] Supabase Anon Key:', supabaseAnonKey);
+  console.log('[SERVER] Supabase URL:', supabaseUrl);
+  console.log('[SERVER] Supabase Anon Key:', supabaseAnonKey);
 
   return createServerClient(supabaseUrl, supabaseAnonKey, {
     cookies: {
