@@ -25,8 +25,8 @@ export const validateSession = async (request: NextRequest) => {
     });
 
     const supabase = createServerClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+      'https://uoptqsubepkyeepydjvc.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVvcHRxc3ViZXBreWVlcHlkanZjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA5Mzc0NjcsImV4cCI6MjA2NjUxMzQ2N30.BghfP2XYoTmD34mMrOprbUwfRARihZs_MHXuDRrdhvk',
       {
         cookies: {
           get(name: string) {
