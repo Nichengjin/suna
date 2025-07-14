@@ -72,6 +72,7 @@ export function useThreadData(threadId: string, projectId: string): UseThreadDat
         }
 
         if (messagesQuery.data && !messagesLoadedRef.current) {
+          console.log('[useThreadData-BEFORE-FILTER]', messagesQuery.data);
           const unifiedMessages = (messagesQuery.data || [])
             .filter((msg) => msg.type !== 'status')
             .map((msg: ApiMessageType) => ({
@@ -85,6 +86,7 @@ export function useThreadData(threadId: string, projectId: string): UseThreadDat
               updated_at: msg.updated_at || new Date().toISOString(),
             }));
 
+          console.log('[useThreadData-AFTER-FILTER]', unifiedMessages);
           setMessages(unifiedMessages);
           console.log('[PAGE] Loaded Messages (excluding status, keeping browser_state):', unifiedMessages.length);
           messagesLoadedRef.current = true;
@@ -144,6 +146,7 @@ export function useThreadData(threadId: string, projectId: string): UseThreadDat
 
   useEffect(() => {
     if (messagesQuery.data && messagesQuery.status === 'success') {
+      console.log('[useThreadData-UPDATE]', messagesQuery.data);
       if (!isLoading && agentStatus !== 'running' && agentStatus !== 'connecting') {
         const unifiedMessages = (messagesQuery.data || [])
           .filter((msg) => msg.type !== 'status')

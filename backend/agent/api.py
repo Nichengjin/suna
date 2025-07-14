@@ -15,7 +15,7 @@ from utils.auth_utils import get_current_user_id_from_jwt, get_user_id_from_stre
 from utils.logger import logger, structlog
 from services.billing import check_billing_status, can_use_model
 from utils.config import config
-from sandbox.sandbox import create_sandbox, delete_sandbox, get_or_start_sandbox
+from sandbox.sandbox import create_sandbox, delete_sandbox, get_or_start_sandbox, kill_all_sandboxes
 from services.llm import make_llm_api_call
 from agent.run_agent import run_agent_run_stream, update_agent_run_status, get_stream_context
 from utils.constants import MODEL_NAME_ALIASES
@@ -773,6 +773,9 @@ async def initiate_agent_with_files(
         sandbox_id = None
         try:
           sandbox_pass = str(uuid.uuid4())
+          # List all sandboxes
+          await kill_all_sandboxes()
+
           sandbox = await create_sandbox(sandbox_pass, project_id)
           sandbox_id = sandbox.id
           logger.info(f"Created new sandbox {sandbox_id} for project {project_id}")

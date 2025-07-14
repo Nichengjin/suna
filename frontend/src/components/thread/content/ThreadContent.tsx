@@ -334,6 +334,7 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
 
     // In playback mode, we use visibleMessages instead of messages
     const displayMessages = readOnly && visibleMessages ? visibleMessages : messages;
+    console.log('[ThreadContent-FINAL-DISPLAY]', displayMessages);
 
     const handleScroll = () => {
         if (!messagesContainerRef.current) return;

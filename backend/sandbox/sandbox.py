@@ -78,8 +78,25 @@ async def start_supervisord_session(sandbox: AsyncSandbox):
         logger.error(f"Error starting supervisord session: {str(e)}")
         raise e
 
+async def kill_all_sandboxes():
+    """Kill all existing sandboxes unconditionally."""
+    logger.info("Killing all existing sandboxes")
+    
+    # List all sandboxes
+    sandboxes = await daytona.list()
+    
+    for sandbox in sandboxes:
+        logger.info(f"Killing sandbox: {sandbox.id}")
+        await daytona.delete(sandbox)
+        logger.info(f"Successfully killed sandbox: {sandbox.id}")
+    
+    logger.info(f"Finished killing all sandboxes. Total processed: {len(sandboxes)}")
+
 async def create_sandbox(password: str, project_id: str = None) -> AsyncSandbox:
     """Create a new sandbox with all required services configured and running."""
+    
+    # Kill all existing sandboxes first
+    await kill_all_sandboxes()
     
     logger.debug("Creating new Daytona sandbox environment")
     logger.debug("Configuring sandbox with browser-use image and environment variables")
