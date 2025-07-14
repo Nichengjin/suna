@@ -4,8 +4,8 @@ import { cookies } from 'next/headers';
 
 export const createClient = async () => {
   const cookieStore = await cookies();
-  let supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+  let supabaseUrl = 'https://uoptqsubepkyeepydjvc.supabase.co';
+  const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVvcHRxc3ViZXBreWVlcHlkanZjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA5Mzc0NjcsImV4cCI6MjA2NjUxMzQ2N30.BghfP2XYoTmD34mMrOprbUwfRARihZs_MHXuDRrdhvk';
 
   // Ensure the URL is in the proper format with http/https protocol
   if (supabaseUrl && !supabaseUrl.startsWith('http')) {
