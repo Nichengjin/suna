@@ -132,27 +132,15 @@ async def log_requests_middleware(request: Request, call_next):
         logger.error(f"Request failed: {method} {path} | Error: {str(e)} | Time: {process_time:.2f}s")
         raise
 
-# Define allowed origins based on environment
-allowed_origins = ["https://www.suna.so", "https://suna.so"]
-allow_origin_regex = None
-
-# Add staging-specific origins
-if config.ENV_MODE == EnvMode.LOCAL:
-    allowed_origins.append("http://localhost:3000")
-
-# Add staging-specific origins
-if config.ENV_MODE == EnvMode.STAGING:
-    allowed_origins.append("https://staging.suna.so")
-    allowed_origins.append("http://localhost:3000")
-    allow_origin_regex = r"https://suna-.*-prjcts\.vercel\.app"
+# Define allowed origins - Allow all origins for now to disable CORS restrictions
+allowed_origins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=allowed_origins,
-    allow_origin_regex=allow_origin_regex,
-    allow_credentials=True,
-    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allow_headers=["Content-Type", "Authorization", "X-Project-Id"],
+    allow_credentials=False,  # Must be False when allow_origins=["*"]
+    allow_methods=["*"],      # Allow all methods
+    allow_headers=["*"],      # Allow all headers
 )
 
 # Create a main API router
