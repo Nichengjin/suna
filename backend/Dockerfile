@@ -27,7 +27,7 @@ EXPOSE 8000
 CMD ["sh", "-c", "uv run gunicorn api:app \
   --workers $WORKERS \
   --worker-class uvicorn.workers.UvicornWorker \
-  --bind 0.0.0.0:8000 \
+  --bind 0.0.0.0:8080 \
   --timeout 1800 \
   --graceful-timeout 600 \
   --keep-alive 1800 \
