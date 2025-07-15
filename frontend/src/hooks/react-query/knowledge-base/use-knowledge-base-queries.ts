@@ -15,7 +15,7 @@ import {
   CloneResponse
 } from './types';
 
-const API_URL = process.env.NEXT_PUBLIC_BACKEND_URL || '';
+const API_URL = 'https://suna-backend-production-b642.up.railway.app';
 
 const useAuthHeaders = () => {
   const getHeaders = async () => {

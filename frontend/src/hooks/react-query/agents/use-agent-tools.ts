@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { createClient } from '@/lib/supabase/client';
 import { isFlagEnabled } from '@/lib/feature-flags';
 
-const API_URL = process.env.NEXT_PUBLIC_BACKEND_URL || '';
+const API_URL = 'https://suna-backend-production-b642.up.railway.app';
 
 export interface AgentTool {
   name: string;
