@@ -1,7 +1,7 @@
 import { createClient } from "@/lib/supabase/client";
 import { isFlagEnabled } from "@/lib/feature-flags";
 
-const API_URL = 'https://suna-backend-production-b642.up.railway.app';
+const API_URL = 'https://suna-backend-production-b642.up.railway.app/api';
 
 export type Agent = {
   agent_id: string;

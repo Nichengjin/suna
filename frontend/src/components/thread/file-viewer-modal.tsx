@@ -49,7 +49,7 @@ import JSZip from 'jszip';
 import { normalizeFilenameToNFC } from '@/lib/utils/unicode';
 
 // Define API_URL
-const API_URL = 'https://suna-backend-production-b642.up.railway.app';
+const API_URL = 'https://suna-backend-production-b642.up.railway.app/api';
 
 interface FileViewerModalProps {
   open: boolean;

@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { createClient } from '@/lib/supabase/client';
 
-const API_URL = 'https://suna-backend-production-b642.up.railway.app';
+const API_URL = 'https://suna-backend-production-b642.up.railway.app/api';
 
 interface MCPServer {
   qualifiedName: string;

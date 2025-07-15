@@ -2,7 +2,7 @@ import { createClient } from '@/lib/supabase/client';
 import { handleApiError } from './error-handler';
 
 // Get backend URL from environment variables
-const API_URL = 'https://suna-backend-production-b642.up.railway.app';
+const API_URL = 'https://suna-backend-production-b642.up.railway.app/api';
 
 // Set to keep track of agent runs that are known to be non-running
 const nonRunningAgentRuns = new Set<string>();

@@ -26,7 +26,7 @@ function normalizePath(path: string): string {
   return path;
 }
 
-const API_URL = 'https://suna-backend-production-b642.up.railway.app';
+const API_URL = 'https://suna-backend-production-b642.up.railway.app/api';
 
 /**
  * Hook for uploading files

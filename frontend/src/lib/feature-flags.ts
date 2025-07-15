@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery, useQueries } from '@tanstack/react-query';
 
-const API_URL = 'https://suna-backend-production-b642.up.railway.app';
+const API_URL = 'https://suna-backend-production-b642.up.railway.app/api';
 
 export interface FeatureFlag {
   flag_name: string;

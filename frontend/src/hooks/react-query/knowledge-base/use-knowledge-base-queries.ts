@@ -15,7 +15,7 @@ import {
   CloneResponse
 } from './types';
 
-const API_URL = 'https://suna-backend-production-b642.up.railway.app';
+const API_URL = 'https://suna-backend-production-b642.up.railway.app/api';
 
 const useAuthHeaders = () => {
   const getHeaders = async () => {

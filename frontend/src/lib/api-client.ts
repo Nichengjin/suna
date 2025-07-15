@@ -1,7 +1,7 @@
 import { createClient } from '@/lib/supabase/client';
 import { handleApiError, handleNetworkError, ErrorContext, ApiError } from './error-handler';
 
-const API_URL = 'https://suna-backend-production-b642.up.railway.app';
+const API_URL = 'https://suna-backend-production-b642.up.railway.app/api';
 
 export interface ApiClientOptions {
   showErrors?: boolean;
