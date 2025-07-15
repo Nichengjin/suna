@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { TriggerProvider } from '@/components/agents/triggers/types';
 import { createClient } from '@/lib/supabase/client';
 
-const API_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
+const API_URL = 'https://suna-backend-production-b642.up.railway.app/api';
 
 const fetchTriggerProviders = async (): Promise<TriggerProvider[]> => {
   const supabase = createClient();
